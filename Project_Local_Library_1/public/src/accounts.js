@@ -4,8 +4,7 @@ function findAccountById(accounts, id) {
 }
 
 function sortAccountsByLastName(accounts) {
-  const sortedAccountArr = accounts.sort((accountA, accountB) => accountA.name.last > accountB.name.last ? 1 : -1);
-  console.log(sortedAccountArr);
+  const sortedAccountArr = accounts.sort((accountA, accountB) => accountA.name.last > accountB.name.last ? 1 : -1););
   return sortedAccountArr;
 }
 
@@ -28,7 +27,6 @@ function getBooksPossessedByAccount(account, books, authors) {
     let authorObj = authors.find((author) => book.authorId === author.id);
     book.author = authorObj
   });
-  console.log(booksPossessedByAccount);
   return booksPossessedByAccount;
 }
 
