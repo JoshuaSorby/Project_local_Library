@@ -7,15 +7,16 @@ function findBookById(books, id) {
 }
 
 function partitionBooksByBorrowedStatus(books) {
-  const returnedArr = books.filter((book) => book.borrows[0].returned === false);
+  function bookReturnedHelperFunc(status) {return books.filter((book) => book.borrows[0].returned === status)}
 
-  const notReturnedArr = books.filter((book) => book.borrows[0].returned === true);
+  const returnedArr = bookReturnedHelperFunc(false);
+
+  const notReturnedArr = bookReturnedHelperFunc(true);
 
   let allBooksArr = [];
 
   allBooksArr[0] = returnedArr;
   allBooksArr[1] = notReturnedArr;
-  console.log(allBooksArr);
   return allBooksArr;
 }
 
