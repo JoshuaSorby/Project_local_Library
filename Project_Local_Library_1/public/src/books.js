@@ -20,27 +20,12 @@ function partitionBooksByBorrowedStatus(books) {
   return allBooksArr;
 }
 
-/*function getBorrowersForBook(book, accounts) {
-  borrowersArr = [];
-  book.borrows.forEach((borrow) => {
-    accounts.find((account) => {                  //.find could be replaced with .forEach
-      if (account.id === borrow.id) {
-        account.returned = borrow.returned;
-        if (borrowersArr.length < 10) borrowersArr.push(account);
-      }
-    });
-  });
-  console.log(borrowersArr);
-  return borrowersArr;
-}*/
-
 function getBorrowersForBook(book, accounts) {
   const borrowsArr = book.borrows.slice(0, 10);
   const borrowersArrResult = borrowsArr.map((borrow) => {
     const account = accounts.find((account) => account.id === borrow.id);
     return {...account, returned:borrow.returned};
   })
-  console.log(borrowsArr);
   return borrowersArrResult;
 }
 
